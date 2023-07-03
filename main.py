@@ -6,6 +6,7 @@ class MergeXcel(ctk.CTk):
         super().__init__()
         self.title("MergeXcel")
         self.geometry("500x600")
+        self.after(201, self.iconbitmap(".git\\icon.ico")
 
         header_frame = ctk.CTkFrame(self, corner_radius=20, border_width=5)
         header_frame.place(relx=0.5, rely=0.2, relwidth=0.95, relheight=0.3, anchor=ctk.S)

@@ -37,7 +37,7 @@ class MergeXcel(ctk.CTk):
         body_frame.place(relx=0.5, rely=0.225, relwidth=0.95, relheight=0.76, anchor=ctk.N)
 
         self.filenames = []
-        select_files_button = ctk.CTkButton(body_frame, text="SELECT👆", command=self.openFileNames)
+        select_files_button = ctk.CTkButton(body_frame, text="SELECT", font=("Arial", 20), command=self.openFileNames)
         select_files_button.place(relx=0.5, rely=0.1, anchor=ctk.CENTER)
 
         self.selected_files_listbox = ctkLB.CTkListbox(body_frame)
@@ -49,13 +49,13 @@ class MergeXcel(ctk.CTk):
         single_sheet_radio_button = ctk.CTkRadioButton(body_frame, text="Merge into single sheet", variable=self.radio_var, value=2)
         single_sheet_radio_button.place(relx=0.7, rely=0.8, anchor=ctk.CENTER)
 
-        merge_button = ctk.CTkButton(body_frame, text="MERGE 📄➕📄", command=self.mergeFiles)
+        merge_button = ctk.CTkButton(body_frame, text="MERGE", font=("Arial", 20), command=self.mergeFiles)
         merge_button.place(relx=0.5, rely=0.9, anchor=ctk.CENTER)
 
         self.mainloop()
 
     def openFileNames(self):
-        new_filenames = list(ctk.filedialog.askopenfilenames(filetypes=[("Excel files", "*.xlsx *.xls")], multiple=True))
+        new_filenames = list(ctk.filedialog.askopenfilenames(filetypes=[("Excel files", "*.xlsx")], multiple=True))
 
         if len(new_filenames) != 0:
             self.filenames = new_filenames
@@ -71,19 +71,21 @@ class MergeXcel(ctk.CTk):
 
             for file in self.filenames[1:]:
                 df = pd.read_excel(file)
-                
+                    
                 merged_df = pd.merge(merged_df, df, how="outer")
 
-            merged_df.to_excel('C:\\Users\\Lenovo\\Desktop\\merged_sheets.xlsx', index=False)
+            save_loc = ctk.filedialog.asksaveasfile(filetypes=[("Excel file", "*.xlsx")], defaultextension=[("Excel file", ".xlsx")])
+            merged_df.to_excel(save_loc.name, index=False)
 
         else:
-            #     writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")
-            #     for file, i in enumerate(self.filenames):
-            #         df = pd.read_excel(file)
-            #         df.to_excel(writer, sheet_name="Sheet {i + 1}", index=False)
+            #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")
+            #   for file, i in enumerate(self.filenames):
+            #       df = pd.read_excel(file)
+            #       df.to_excel(writer, sheet_name="Sheet {i + 1}", index=False)
 
-            #         writer.save()
+            #       writer.save()
             pass
+
 
 if __name__ == "__main__":
     MergeXcel()

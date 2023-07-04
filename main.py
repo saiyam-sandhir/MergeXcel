@@ -58,6 +58,10 @@ class MergeXcel(ctk.CTk):
         self.merge_files_progress_bar.place(relx=0.5, rely=0.9, relwidth=0.6, anchor=ctk.CENTER)
         self.merge_files_progress_bar.place_forget()
 
+        self.merge_message_label = ctk.CTkLabel(body_frame, text="", font=("Arial", 10), height=12)
+        self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
+        self.merge_message_label.place_forget()
+
         self.mainloop()
         
     def openFileNames(self):
@@ -80,33 +84,43 @@ class MergeXcel(ctk.CTk):
         self.select_files_button.place(relx=0.5, rely=0.1, anchor=ctk.CENTER)
 
     def mergeFiles(self):
-        if self.radio_var.get() == 2 and len(self.filenames) != 0:
-            self.merge_button.place_forget()
-            self.merge_files_progress_bar.place(relx=0.5, rely=0.9, relwidth=0.6, anchor=ctk.CENTER)
-            self.merge_files_progress_bar.start()
+        try:
+            if self.radio_var.get() == 2 and len(self.filenames) != 0:
+                self.merge_button.place_forget()
+                self.merge_files_progress_bar.place(relx=0.5, rely=0.9, relwidth=0.6, anchor=ctk.CENTER)
+                self.merge_files_progress_bar.start()
 
-            merged_df = pd.read_excel(self.filenames[0])
+                merged_df = pd.read_excel(self.filenames[0])
 
-            for file in self.filenames[1:]:
-                df = pd.read_excel(file)
-                    
-                merged_df = pd.merge(merged_df, df, how="outer")
+                for file in self.filenames[1:]:
+                    df = pd.read_excel(file)
+                        
+                    merged_df = pd.merge(merged_df, df, how="outer")
 
-            self.merge_files_progress_bar.stop()
-            self.merge_files_progress_bar.place_forget()
-            self.merge_button.place(relx=0.5, rely=0.9, anchor=ctk.CENTER)
+                self.merge_files_progress_bar.stop()
+                self.merge_files_progress_bar.place_forget()
+                self.merge_button.place(relx=0.5, rely=0.9, anchor=ctk.CENTER)
 
-            save_loc = ctk.filedialog.asksaveasfile(filetypes=[("Excel file", "*.xlsx")], defaultextension=[("Excel file", ".xlsx")])
-            merged_df.to_excel(save_loc.name, index=False)
+                save_loc = ctk.filedialog.asksaveasfile(filetypes=[("Excel file", "*.xlsx")], defaultextension=[("Excel file", ".xlsx")])
+                merged_df.to_excel(save_loc.name, index=False)
 
-        else:
-            #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")
-            #   for file, i in enumerate(self.filenames):
-            #       df = pd.read_excel(file)
-            #       df.to_excel(writer, sheet_name="Sheet {i + 1}", index=False)
+            else:
+                #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")
+                #   for file, i in enumerate(self.filenames):
+                #       df = pd.read_excel(file)
+                #       df.to_excel(writer, sheet_name="Sheet {i + 1}", index=False)
 
-            #       writer.save()
-            pass
+                #       writer.save()
+                pass
+
+            self.merge_message_label.configure(text="Merge Successful", text_color="green", font=("Arial", 10))
+            self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
+            self.after(5000, self.merge_message_label.place_forget)
+
+        except Exception:
+            self.merge_message_label.configure(text=f"Error: {Exception}", text_color="red", font=("Arial", 10))
+            self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
+            self.after(5000, self.merge_message_label.place_forget)
 
 if __name__ == "__main__":
     MergeXcel()

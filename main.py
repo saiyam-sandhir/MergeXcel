@@ -104,6 +104,8 @@ class MergeXcel(ctk.CTk):
                 save_loc = ctk.filedialog.asksaveasfile(filetypes=[("Excel file", "*.xlsx")], defaultextension=[("Excel file", ".xlsx")])
                 merged_df.to_excel(save_loc.name, index=False)
 
+                self.merge_message_label.configure(text="Merge Successful", text_color="green", font=("Arial", 10))
+
             else:
                 #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")
                 #   for file, i in enumerate(self.filenames):
@@ -113,7 +115,6 @@ class MergeXcel(ctk.CTk):
                 #       writer.save()
                 pass
 
-            self.merge_message_label.configure(text="Merge Successful", text_color="green", font=("Arial", 10))
             self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
             self.after(5000, self.merge_message_label.place_forget)
 

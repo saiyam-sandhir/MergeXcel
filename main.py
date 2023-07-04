@@ -1,4 +1,5 @@
 import customtkinter as ctk
+from PIL import Image
 import pandas as pd
 import sys
 import os
@@ -19,8 +20,17 @@ class MergeXcel(ctk.CTk):
         header_frame = ctk.CTkFrame(self, corner_radius=20, border_width=5)
         header_frame.place(relx=0.5, rely=0.2, relwidth=0.95, relheight=0.3, anchor=ctk.S)
 
-        header_label = ctk.CTkLabel(header_frame, text="MergeXcel", font=("Lucida Calligraphy", 50))
-        header_label.place(relx=0.5, rely=0.65, anchor=ctk.CENTER)
+        logo_frame = ctk.CTkFrame(header_frame, width=400, height=100, border_width=0, fg_color="transparent")
+        logo_frame.place(relx=0.5, rely=0.65, anchor=ctk.CENTER)
+
+        logo_image = ctk.CTkImage(light_image=Image.open(".\\icon.png"),
+                                  dark_image=Image.open(".\\icon.png"),
+                                  size=(100, 100))
+        logo_label = ctk.CTkLabel(logo_frame, image=logo_image, text="")
+        logo_label.place(relx=0.15, rely=0.5, anchor=ctk.CENTER)
+
+        header_label = ctk.CTkLabel(logo_frame, text="MergeXcel", font=("Lucida Calligraphy", 50))
+        header_label.place(relx=0.265, rely=0.5, anchor=ctk.W)
         
         #-------------------- BODY --------------------#
         body_frame = ctk.CTkFrame(self, corner_radius=20, border_width=5)

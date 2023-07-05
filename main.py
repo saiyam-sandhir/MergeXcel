@@ -14,21 +14,15 @@ class MergeXcel(ctk.CTk):
         super().__init__()
         self.title("MergeXcel")
         self.geometry("500x600")
-        self.after(201, self.iconbitmap("E:\\MergeXcel\\icon.ico"))
+        self.after(201, self.iconbitmap("E:\\MergeXcel\\image_assets\\icon.ico"))
 
         #-------------------- HEADER --------------------#
         header_frame = ctk.CTkFrame(self, corner_radius=20, border_width=5)
         header_frame.place(relx=0.5, rely=0.2, relwidth=0.95, relheight=0.3, anchor=ctk.S)
 
-        logo_frame = ctk.CTkFrame(header_frame, width=400, height=100, border_width=0, fg_color="transparent")
-        logo_frame.place(relx=0.5, rely=0.65, anchor=ctk.CENTER)
-
-        logo_image = ctk.CTkImage(light_image=Image.open(".\\icon.png"),dark_image=Image.open(".\\icon.png"),size=(100, 100))
-        logo_label = ctk.CTkLabel(logo_frame, image=logo_image, text="")
-        logo_label.place(relx=0.15, rely=0.5, anchor=ctk.CENTER)
-
-        header_label = ctk.CTkLabel(logo_frame, text="MergeXcel", font=("Lucida Calligraphy", 50))
-        header_label.place(relx=0.265, rely=0.5, anchor=ctk.W)
+        logo_image = ctk.CTkImage(light_image=Image.open(".\\image_assets\\icon.png"),dark_image=Image.open(".\\image_assets\\icon.png"),size=(100, 100))
+        header_label = ctk.CTkLabel(header_frame, text="MergeXcel", font=("Lucida Calligraphy", 50), image=logo_image, compound=ctk.LEFT)
+        header_label.place(relx=0.5, rely=0.65, anchor=ctk.CENTER)
         
         #-------------------- BODY --------------------#
         body_frame = ctk.CTkFrame(self, corner_radius=20, border_width=5)
@@ -104,7 +98,7 @@ class MergeXcel(ctk.CTk):
                 save_loc = ctk.filedialog.asksaveasfile(filetypes=[("Excel file", "*.xlsx")], defaultextension=[("Excel file", ".xlsx")])
                 merged_df.to_excel(save_loc.name, index=False)
 
-                self.merge_message_label.configure(text="Merge Successful", text_color="green", font=("Arial", 10))
+                self.merge_message_label.configure(text="Merge & Successful", text_color="green", font=("Arial", 10))
 
             else:
                 #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")

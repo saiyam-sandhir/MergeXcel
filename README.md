@@ -30,4 +30,11 @@
 - customtkinter
 - pillow
 - openpyxl
-- 
+- and other standard pyhton libraries which are already installed
+
+</br>
+
+<h2>Acknowledgement</h2>
+
+- This software uses images downloded from '<a href = "https://www.flaticon.com">flaticon.com</a>'.
+- This software took color theme idea from '<a href = "https://colorhunt.com">colorhunt.com</a>'.

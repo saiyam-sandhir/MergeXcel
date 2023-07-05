@@ -38,3 +38,9 @@
 
 - This software uses images downloded from '<a href = "https://www.flaticon.com">flaticon.com</a>'.
 - This software took color theme idea from '<a href = "https://colorhunt.com">colorhunt.com</a>'.
+
+</br>
+
+<h2>License</h2>
+
+<p>This software is licensed under the MIT License.</p>

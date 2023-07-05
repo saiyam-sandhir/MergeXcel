@@ -8,3 +8,16 @@
 
 <p>The project is licensed under the MIT License.</p>
 
+</br>
+
+<h2>Features</h2>
+
+- Simple and easy-to-use interface.
+- Merge multiple Excel files into a single output.
+- Utilizes outer join approach to preserve all data during merging.
+- File selection listing to see selected files before merging.
+- Error handling mechanism for seamless merging.
+- Time-saving automation for quick data consolidation.
+- Maintains data integrity during the merging process.
+- Flexible output format option for customization.
+- Enhances productivity by simplifying the merging process.

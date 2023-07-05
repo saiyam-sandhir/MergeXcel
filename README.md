@@ -28,6 +28,7 @@
 
 - Python 3.x
 - customtkinter
+- pandas
 - pillow
 - openpyxl
 - and other standard pyhton libraries which are already installed

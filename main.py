@@ -99,9 +99,9 @@ class MergeXcel(ctk.CTk):
                 self.merge_button.place(relx=0.5, rely=0.9, anchor=ctk.CENTER)
 
                 save_loc = ctk.filedialog.asksaveasfile(filetypes=[("Excel file", "*.xlsx")], defaultextension=[("Excel file", ".xlsx")])
-                merged_df.to_excel(save_loc.name, index=False)
-
-                self.merge_message_label.configure(text="Merge & Save Successful", text_color="green", font=("Arial", 10))
+                if save_loc is not None:
+                    merged_df.to_excel(save_loc.name, index=False)
+                    self.merge_message_label.configure(text="Merge & Save Successful", text_color="green", font=("Arial", 10))
 
             else:
                 #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")

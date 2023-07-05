@@ -14,10 +14,13 @@ class MergeXcel(ctk.CTk):
         super().__init__()
         self.title("MergeXcel")
         self.geometry("500x600")
-        self.after(201, self.iconbitmap("E:\\MergeXcel\\image_assets\\icon.ico"))
+        self.after(201, self.iconbitmap(".\\image_assets\\icon.ico"))
+        self.configure(fg_color="#8EAC50")
+
+        ctk.set_default_color_theme("custom_theme.json")
 
         #-------------------- HEADER --------------------#
-        header_frame = ctk.CTkFrame(self, corner_radius=20, border_width=5)
+        header_frame = ctk.CTkFrame(self)
         header_frame.place(relx=0.5, rely=0.2, relwidth=0.95, relheight=0.3, anchor=ctk.S)
 
         logo_image = ctk.CTkImage(light_image=Image.open(".\\image_assets\\icon.png"),dark_image=Image.open(".\\image_assets\\icon.png"),size=(100, 100))
@@ -25,14 +28,14 @@ class MergeXcel(ctk.CTk):
         header_label.place(relx=0.5, rely=0.65, anchor=ctk.CENTER)
         
         #-------------------- BODY --------------------#
-        body_frame = ctk.CTkFrame(self, corner_radius=20, border_width=5)
+        body_frame = ctk.CTkFrame(self)
         body_frame.place(relx=0.5, rely=0.225, relwidth=0.95, relheight=0.76, anchor=ctk.N)
 
         self.filenames = []
         self.select_files_button = ctk.CTkButton(body_frame, text="SELECT", font=("Arial", 20), command=self.openFileNames)
         self.select_files_button.place(relx=0.5, rely=0.1, anchor=ctk.CENTER)
 
-        self.select_files_progress_bar = ctk.CTkProgressBar(body_frame, height=10, border_width=2, corner_radius=5, orientation="indeterminate")
+        self.select_files_progress_bar = ctk.CTkProgressBar(body_frame, height=10, orientation="indeterminate")
         self.select_files_progress_bar.place(relx=0.5, rely=0.1, relwidth=0.6, anchor=ctk.CENTER)
         self.select_files_progress_bar.place_forget()
 
@@ -48,7 +51,7 @@ class MergeXcel(ctk.CTk):
         self.merge_button = ctk.CTkButton(body_frame, text="MERGE", font=("Arial", 20), command=self.mergeFiles)
         self.merge_button.place(relx=0.5, rely=0.9, anchor=ctk.CENTER)
 
-        self.merge_files_progress_bar = ctk.CTkProgressBar(body_frame, height=10, border_width=2, corner_radius=5, orientation="indeterminate")
+        self.merge_files_progress_bar = ctk.CTkProgressBar(body_frame, height=10, orientation="indeterminate")
         self.merge_files_progress_bar.place(relx=0.5, rely=0.9, relwidth=0.6, anchor=ctk.CENTER)
         self.merge_files_progress_bar.place_forget()
 
@@ -71,7 +74,7 @@ class MergeXcel(ctk.CTk):
                 self.selected_files_listbox.delete(i)
                 
             for i, file in enumerate(self.filenames):
-                self.selected_files_listbox.insert(i, file)
+                self.selected_files_listbox.insert(i, f"{i+1})    {file}")
 
         self.select_files_progress_bar.stop()
         self.select_files_progress_bar.place_forget()
@@ -98,7 +101,7 @@ class MergeXcel(ctk.CTk):
                 save_loc = ctk.filedialog.asksaveasfile(filetypes=[("Excel file", "*.xlsx")], defaultextension=[("Excel file", ".xlsx")])
                 merged_df.to_excel(save_loc.name, index=False)
 
-                self.merge_message_label.configure(text="Merge & Successful", text_color="green", font=("Arial", 10))
+                self.merge_message_label.configure(text="Merge & Save Successful", text_color="green", font=("Arial", 10))
 
             else:
                 #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")

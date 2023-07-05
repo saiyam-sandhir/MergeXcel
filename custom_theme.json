@@ -1,0 +1,67 @@
+{
+  "CTkFrame": {
+    "corner_radius": 20,
+    "border_width": 5,
+    "fg_color": "#FFFAD7",
+    "top_fg_color": "gray16",
+    "border_color": "#17594A"
+  },
+  "CTkButton": {
+    "corner_radius": 6,
+    "border_width": 0,
+    "fg_color": "#8EAC50",
+    "hover_color": "#D3D04F",
+    "border_color": "#949A9F",
+    "text_color": "black",
+    "text_color_disabled": "gray60"
+  },
+  "CTkLabel": {
+    "corner_radius": 0,
+    "fg_color": "transparent",
+    "text_color": "black"
+  },
+  "CTkRadioButton": {
+    "corner_radius": 1000,
+    "border_width_checked": 6,
+    "border_width_unchecked": 3,
+    "fg_color": "#8EAC50",
+    "border_color": "#8EAC50",
+    "hover_color": "#D3D04F",
+    "text_color": "black",
+    "text_color_disabled": "gray45"
+  },
+  "CTkProgressBar": {
+    "corner_radius": 5,
+    "border_width": 2,
+    "fg_color": "#FFFAD7",
+    "progress_color": "#8EAC50",
+    "border_color": "#17594A"
+  },
+  "CTkScrollbar": {
+    "corner_radius": 1000,
+    "border_spacing": 4,
+    "fg_color": "transparent",
+    "button_color": "gray41",
+    "button_hover_color": "gray53"
+  },
+  "CTkScrollableFrame": {
+    "label_fg_color": "gray21"
+  },
+  "CTkFont": {
+    "macOS": {
+      "family": "SF Display",
+      "size": 13,
+      "weight": "normal"
+    },
+    "Windows": {
+      "family": "Roboto",
+      "size": 13,
+      "weight": "normal"
+    },
+    "Linux": {
+      "family": "Roboto",
+      "size": 13,
+      "weight": "normal"
+    }
+  }
+}

@@ -10,6 +10,17 @@
 
 </br>
 
+<h2>Preview</h2>
+
+![Screenshot 2023-07-06 014103](https://github.com/saiyam-sandhir/MergeXcel/assets/86138251/6de37662-4edf-492f-810b-1914fa8f0808)
+![Screenshot 2023-07-06 014305](https://github.com/saiyam-sandhir/MergeXcel/assets/86138251/63c0d04e-2773-45bb-b1b0-8d4a36df2198)
+![Screenshot 2023-07-06 014340](https://github.com/saiyam-sandhir/MergeXcel/assets/86138251/6c5d88ab-0e22-4849-b3b8-bf7f7491fd7f)
+![Screenshot 2023-07-06 014411](https://github.com/saiyam-sandhir/MergeXcel/assets/86138251/96265269-660a-434b-8580-7e362d8d2630)
+![Screenshot 2023-07-06 014738](https://github.com/saiyam-sandhir/MergeXcel/assets/86138251/e5283490-2b1d-4871-bd8d-21ee72011a6d)
+![Screenshot 2023-07-06 014812](https://github.com/saiyam-sandhir/MergeXcel/assets/86138251/7c529d71-b3aa-4309-943d-263673edd58a)
+
+</br>
+
 <h2>Features</h2>
 
 - Simple and easy-to-use interface.

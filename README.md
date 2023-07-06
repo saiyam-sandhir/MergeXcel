@@ -6,8 +6,6 @@
 
 <p>With MergeXcel, you can say goodbye to the tedious manual merging of Excel files. Its intuitive design and robust functionality make it an indispensable tool for anyone dealing with multiple Excel files. Whether you are a business professional, data analyst, or researcher, MergeXcel empowers you to streamline your workflow and focus on extracting insights from your consolidated data.</p>
 
-<p>The project is licensed under the MIT License.</p>
-
 </br>
 
 <h2>Preview</h2>
@@ -50,9 +48,12 @@
 
 - This software uses images downloded from '<a href = "https://www.flaticon.com">flaticon.com</a>'.
 - This software took color theme idea from '<a href = "https://colorhunt.com">colorhunt.com</a>'.
+- This project utilizes a third party componet, CTkListbox, which is a distribution under the MIT Licnese. The componet is strored in the CTkListbox-main folder witht this project.
 
 </br>
 
 <h2>License</h2>
 
-<p>This software is licensed under the MIT License.</p>
+- Saiyam Jain's contributions to this project are distributed under the MIT license. The LICENSE file is in the root directory
+
+- CTkListbox, developed by Akash Bora, is included in this project under the therms of its own MIT license. The license file can be found in the CTkListbox-main folder, along with the project folder, relevant files and doucmentaion pertaining to the the third-party component.

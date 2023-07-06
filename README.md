@@ -44,6 +44,15 @@
 
 </br>
 
+<h2>Installation & Usage</h2>
+
+- Clone the repository or download the zip file.
+- Navigate to the project directory in the terminal/command prompt.
+- Run the command `python main.py`.
+- The user can also simply run the 'main.py' file using any IDE of choice.
+
+</br>
+
 <h2>Acknowledgement</h2>
 
 - This software uses images downloded from '<a href = "https://www.flaticon.com">flaticon.com</a>'.

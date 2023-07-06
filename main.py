@@ -115,7 +115,16 @@ class MergeXcel(ctk.CTk):
             self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
             self.after(5000, self.merge_message_label.place_forget)
 
-        except Exception:
+        except pd.errors.MergeError:
+            self.merge_files_progress_bar.stop()
+            self.merge_files_progress_bar.place_forget()
+            self.merge_button.place(relx=0.5, rely=0.9, anchor=ctk.CENTER)
+            
+            self.merge_message_label.configure(text=f"Error: One or more files are empty", text_color="red", font=("Arial", 10))
+            self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
+            self.after(5000, self.merge_message_label.place_forget)
+
+        except not pd.erros.MergeError:
             self.merge_message_label.configure(text=f"Error: {Exception}", text_color="red", font=("Arial", 10))
             self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
             self.after(5000, self.merge_message_label.place_forget)

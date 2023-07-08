@@ -32,7 +32,7 @@ class MergeXcel(ctk.CTk):
         
         #-------------------- BODY --------------------#
         body_frame = ctk.CTkFrame(self)
-        body_frame.place(relx=0.5, rely=0.225, relwidth=0.95, relheight=0.76, anchor=ctk.N)
+        body_frame.place(relx=0.5, rely=0.217, relwidth=0.95, relheight=0.76, anchor=ctk.N)
 
         self.filenames = []
         self.select_files_button = ctk.CTkButton(body_frame, text="SELECT", font=("Arial", 20), command=self.openFileNames)

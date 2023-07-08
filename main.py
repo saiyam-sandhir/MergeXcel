@@ -9,6 +9,9 @@ sys.path.append(ctk_listbox)
 
 from CTkListbox import ctk_listbox as ctkLB
 
+class SelectionError(Exception):
+    pass
+
 class MergeXcel(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -102,6 +105,8 @@ class MergeXcel(ctk.CTk):
                 if save_loc is not None:
                     merged_df.to_excel(save_loc.name, index=False)
                     self.merge_message_label.configure(text="Merge & Save Successful", text_color="green", font=("Arial", 10))
+                else:
+                    raise SelectionError()
 
             else:
                 #   writer = pd.ExcelWriter("C:\\Users\\Lenovo\\Desktop\\output.xlsx", engine="xlsxwriter")
@@ -124,8 +129,13 @@ class MergeXcel(ctk.CTk):
             self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
             self.after(5000, self.merge_message_label.place_forget)
 
-        except not pd.erros.MergeError:
-            self.merge_message_label.configure(text=f"Error: {Exception}", text_color="red", font=("Arial", 10))
+        except SelectionError:
+            self.merge_message_label.configure(text="Error: No folder selected", text_color="red", font=("Arial", 10))
+            self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
+            self.after(5000, self.merge_message_label.place_forget)
+
+        except Exception:
+            self.merge_message_label.configure(text="Error", text_color="red", font=("Arial", 10))
             self.merge_message_label.place(relx=0.5, rely=0.96, anchor=ctk.CENTER)
             self.after(5000, self.merge_message_label.place_forget)
 

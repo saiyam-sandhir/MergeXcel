@@ -30,6 +30,7 @@
 - Maintains data integrity during the merging process.
 - Flexible output format option for customization.
 - Enhances productivity by simplifying the merging process.
+- Error handling
 
 </br>
 

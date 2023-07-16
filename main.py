@@ -94,8 +94,7 @@ class MergeXcel(ctk.CTk):
 
                 for file in self.filenames[1:]:
                     df = pd.read_excel(file)
-                        
-                    merged_df = pd.merge(merged_df, df, how="outer")
+                    merged_df = pd.concat([merged_df, df], axis=0, ignore_index=True)
 
                 self.merge_files_progress_bar.stop()
                 self.merge_files_progress_bar.place_forget()
